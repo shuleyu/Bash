@@ -14,15 +14,14 @@
 # Dec 28 2014
 #==============================================================
 
-BASHCODEDIR=${0%/*}
-
-name=pdftk
-command -v ${name} >/dev/null 2>&1 && local=1 || local=0
-
 if [ $# -lt 1 ]
 then
     exit 1
 fi
+
+BASHCODEDIR=${0%/*}
+
+pdftk >/dev/null 2>&1 && local=1 || local=0
 
 if [ ${local} -eq 1 ]
 then
