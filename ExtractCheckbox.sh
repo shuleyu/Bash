@@ -55,11 +55,11 @@ else
 #     ssh shule@10.143.178.98 'rm -r /Users/shule/tmpdir_forcheckbox'
 
 	# Use mini
-    ssh -p 9226 Shule@72.201.57.194 'mkdir ~/tmpdir_forcheckbox'
-    scp -P 9226 $@ Shule@72.201.57.194:/Users/Shule/tmpdir_forcheckbox
-    ssh -p 9226 Shule@72.201.57.194 'source ~/.profile;ExtractCheckbox.sh /Users/Shule/tmpdir_forcheckbox/*pdf'
-    scp -P 9226 Shule@72.201.57.194:~/tmpdir_forcheckbox/*checked .
-    ssh -p 9226 Shule@72.201.57.194 'rm -r /Users/Shule/tmpdir_forcheckbox'
+    ssh    Shule@10.206.167.29 'mkdir ~/tmpdir_forcheckbox'
+    scp $@ Shule@10.206.167.29:/Users/Shule/tmpdir_forcheckbox
+    ssh    Shule@10.206.167.29 'source ~/.profile;ExtractCheckbox.sh /Users/Shule/tmpdir_forcheckbox/*pdf'
+    scp    Shule@10.206.167.29:~/tmpdir_forcheckbox/*checked .
+    ssh    Shule@10.206.167.29 'rm -r /Users/Shule/tmpdir_forcheckbox'
 
 	# Use myssh
 #     ssh -p 9022 shule@eq2.la.asu.edu 'mkdir ~/tmpdir_forcheckbox'
