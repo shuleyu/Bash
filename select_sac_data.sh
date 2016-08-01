@@ -28,7 +28,7 @@ CMP="[TBH]H[RTZ]"
 # 1.1 reject segament files.
 # 1.2 reject records incomplete in three components
 
-for filename in ` find ${DATADIR} -iname "*${CMP}.sac" | sort `
+for filename in ` find ${DATADIR}/ -iname "*${CMP}.sac" | sort `
 do
     if [ ` ls ${filename%%?.sac}*[RTZ].sac |wc -l ` -eq 3 ]
     then
