@@ -13,6 +13,8 @@
 # Nov 05 2014
 #==============================================================
 
+trap "rm -f tmpfile1_$$ tmpfile_$$; exit 1" SIGINT
+
 awk '{print $1}' $1 > tmpfile_$$
 
 rm -f tmpfile1_$$
@@ -28,6 +30,7 @@ done < $2
 
 if ! [ -e tmpfile1_$$ ]
 then
+	rm -f tmpfile1_$$ tmpfile_$$
     exit 0
 fi
 
