@@ -48,7 +48,7 @@ do
 done
 
 sort -u tmpfile1_$$ > tmpfile2_$$
-rm tmpfile1_$$ 2>/dev/null
+rm -f tmpfile1_$$
 
 for stnm in ` cat tmpfile2_$$ `
 do
@@ -83,6 +83,6 @@ else
     cat tmpfile1_$$ | sort -u
 fi
 
-rm tmpfile_$$ tmpfile1_$$ tmpfile2_$$ tmpfile_half1_$$ tmpfile_half2_$$ 2>/dev/null
+rm -f tmpfile_$$ tmpfile1_$$ tmpfile2_$$ tmpfile_half1_$$ tmpfile_half2_$$
 
 exit 0
