@@ -7,7 +7,7 @@ BASHCODEDIR=${0%/*}
 #  This script extract velocity value from PREM file for P and S wave
 #  at certain depth.
 #
-#  Inputs     : $1 ---- P/S
+#  Inputs     : $1 ---- P/Rho/S
 #               $2 ---- Depth.
 #
 #  Output     : Stdout with velocity value.
@@ -20,6 +20,9 @@ BASHCODEDIR=${0%/*}
 if [ "$1" = "P" ]
 then
     echo `awk -v D=$2 '$1>=D {print $2}' ${BASHCODEDIR}/prem_profile.txt | head -n 1`
+elif [ "$1" = "Rho" ]
+then
+    echo `awk -v D=$2 '$1>=D {print $4}' ${BASHCODEDIR}/prem_profile.txt | head -n 1`
 else
     echo `awk -v D=$2 '$1>=D {print $3}' ${BASHCODEDIR}/prem_profile.txt | head -n 1`
 fi

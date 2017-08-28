@@ -28,8 +28,8 @@ then
 
     while [ "$1" != "" ]
     do
-        pdftk ${1} dump_data_fields | grep FieldValue | awk '{print $2}' | sort > ${1}.checked
-        pdftk ${1} dump_data_fields | grep FieldName  | awk '{print $2}' | sort > tmpfile_$$
+        pdftk ${1} dump_data_fields | grep FieldValue | awk '{print $2}' | sort -u > ${1}.checked
+        pdftk ${1} dump_data_fields | grep FieldName  | awk '{print $2}' | sort -u > tmpfile_$$
 		comm -2 -3 tmpfile_$$ ${1}.checked | awk '{print $1}' > ${1}.unchecked
         shift
     done
