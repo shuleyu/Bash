@@ -83,11 +83,28 @@ select column_name from information_schema.columns where table_schema="${1}" and
 EOF
 awk 'NR>1 {print $0}' tmpfile_$$ | sort > tmpfile_table2_colname_$$
 
-
 # Find new/same columns.
-comm -1 -3 tmpfile_table1_colname_$$ tmpfile_table2_colname_$$ > tmpfile_newcol_$$
-comm -1 -2 tmpfile_table1_colname_$$ tmpfile_table2_colname_$$ | awk -v A=${4} '{if ($1!=A) print $1}' > tmpfile_samecol_$$
+# Notice the case-insensitive for mariaDB.
 
+LowerKey=`echo ${4} | awk '{print tolower($0)}'`
+rm -f tmpfile_samecol_$$
+while read table1_col
+do
+
+	LowerColName=`echo ${table1_col} | awk '{print tolower($0)}'`
+	[ ${LowerColName} = ${LowerKey} ] && continue
+
+	grep -w -i ${table1_col} tmpfile_table2_colname_$$ > /dev/null 2>&1
+	[ $? -eq 0 ] && echo ${table1_col} >> tmpfile_samecol_$$
+
+done < tmpfile_table1_colname_$$
+
+rm -f tmpfile_newcol_$$
+while read table2_col
+do
+	grep -w -i ${table2_col} tmpfile_table1_colname_$$ > /dev/null 2>&1
+	[ $? -ne 0 ] && echo ${table2_col} >> tmpfile_newcol_$$
+done < tmpfile_table2_colname_$$
 
 # Update same columns.
 if [ -s tmpfile_samecol_$$ ]

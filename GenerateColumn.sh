@@ -4,7 +4,7 @@
 # This script generate one columns of given string.
 #
 # Inputs : $1 ---- Given string.
-#          $2 ---- Row number.
+#          $2 ---- Number of rows.
 #
 # Output : Stdout
 #
