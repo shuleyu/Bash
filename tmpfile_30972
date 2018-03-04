@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Global CMT Search Results</title>
+    <base href="http://www.globalcmt.org/">
+  </head>
+
+  <body TEXT="#000066" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#800080" ALINK="#003366">
+<h1>Global CMT Catalog</h1>
+
+
+<h2>Search criteria:</h2>
+<pre>
+Start date: 2006/8/25   End date: 2006/8/25
+-90 <=lat<= 90          -180 <=lon<= 180 
+0 <=depth<= 1000         -9999 <=time shift<= 9999
+0 <=mb<= 10        0<=Ms<= 10           0<=Mw<= 10
+0 <=tension plunge<= 90         0 <=null plunge<= 90
+</pre>
+<h2>Results</h2>
+
+Output in <a href="http://www.soest.hawaii.edu/gmt/">GMT</a> psvelomeca (old) format<br>
+
+Columns: lon lat str1 dip1 rake1 str2 dip2 rake2 sc iexp name<br><pre>
+-67.18 -24.44 194 36 -48 326 64 -115 0.898 26 200608250044A  
+104.31 28.00 355 50 45 232 57 130 4.248 23 200608250551A  
+163.52 -10.93 254 60 7 161 84 150 3.631 23 200608251931A  
+130.07 -6.41 346 17 -113 190 75 -83 1.062 24 200608252016A  
+-91.35 15.01 266 20 35 144 79 107 2.949 23 200608252259A  
+</pre><hr><p><b>End of events found with given criteria.</b></p>
+<hr><p>See the <a href="http://www.globalcmt.org">CMT project</a> web page for more information on CMTs.</p><hr>
+<small>
+<br> Please <a href="mailto:Meredith Nettles <nettles@ldeo.columbia.edu>">email comments</a>.<br>
+Last modified: 2011-06-29
+	  </small>
+      </p>
+  </body>
+</html>
