@@ -5,6 +5,8 @@
 # comes from Table2.
 #
 # 1. Only update rows in Table1, use $4 as the key.
+#    Key in both table should be unique: no duplicates.
+#    Number of rows of Table1 will not change.
 #
 # 2. If there's new columns in Table2, add them to Table1,
 #    other rows for these new columns becomes NULL.
