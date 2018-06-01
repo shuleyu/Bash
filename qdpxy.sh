@@ -28,8 +28,10 @@ do
     XMAX=`minmax -m -C ${INFILE} | awk '{print $2}'`
     YMIN=`minmax -m -C ${INFILE} | awk '{print $3}'`
     YMAX=`minmax -m -C ${INFILE} | awk '{print $4}'`
+    XINC=`echo "${XMAX} ${XMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
+    YINC=`echo "${YMAX} ${YMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
 
-    psxy ${INFILE} -JX9.5i/6i -R${XMIN}/${XMAX}/${YMIN}/${YMAX} -X1i -Y1i -m -W0.5p -Ba10/a1 > ${OUTFILE}
+    psxy ${INFILE} -JX9.5i/6i -R${XMIN}/${XMAX}/${YMIN}/${YMAX} -X1i -Y1i -m -W0.5p -Ba${XINC}/a${YINC} > ${OUTFILE}
 
     ps2pdf ${OUTFILE}
     rm -f ${OUTFILE} .gmtcommands4 .gmtdefaults4
