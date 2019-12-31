@@ -31,6 +31,13 @@ do
     XINC=`echo "${XMAX} ${XMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
     YINC=`echo "${YMAX} ${YMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
 
+    XMIN=65
+    XMAX=85
+    YMIN=-1
+    YMAX=1
+    XINC=`echo "${XMAX} ${XMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
+    YINC=`echo "${YMAX} ${YMIN}" | awk '{printf "%.2lf",($1-$2)/10}'`
+
     psxy ${INFILE} -JX9.5i/6i -R${XMIN}/${XMAX}/${YMIN}/${YMAX} -X1i -Y1i -m -Sc0.05i -Gblack -W0.5p -Ba${XINC}/a${YINC} > ${OUTFILE}
 
     ps2pdf ${OUTFILE}
